@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         flavorDimensions "default"
-        applicationId "radhika.yusuf.id.mvvmkotlin"
+        applicationId "id.estock.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -49,6 +49,7 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'com.android.support:support-v4:28.0.0'
     kapt "com.android.databinding:compiler:$rootProject.databindingVersion"
 
     implementation "android.arch.persistence.room:runtime:$rootProject.archRoomVersion"

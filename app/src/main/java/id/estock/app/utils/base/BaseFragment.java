@@ -34,5 +34,5 @@ public abstract class BaseFragment<B extends ViewDataBinding, T extends BaseView
     }
 
     public abstract int getLayoutRes();
-    public abstract Class<MainViewModel> getViewModelClass();
+    public abstract Class<T> getViewModelClass();
 }
