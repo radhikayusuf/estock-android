@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context="id.estock.app.presentation.login.LoginActivity">
 
-    <fragment
-        android:id="@+id/fragmentLogin"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="id.estock.app.presentation.login.LoginFragment" />
+        android:layout_height="match_parent" />
+
 
 </RelativeLayout>
