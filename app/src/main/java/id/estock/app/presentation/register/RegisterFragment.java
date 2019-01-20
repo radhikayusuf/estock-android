@@ -23,6 +23,11 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding, Regi
 
 
     @Override
+    public void onCreateBinding(FragmentRegisterBinding binding) {
+
+    }
+
+    @Override
     public int getLayoutRes() {
         return R.layout.fragment_register;
     }

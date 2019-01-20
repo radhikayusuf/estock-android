@@ -29,6 +29,11 @@ public class SplashFragment extends BaseFragment<FragmentSplashBinding, SplashVi
     }
 
     @Override
+    public void onCreateBinding(FragmentSplashBinding binding) {
+
+    }
+
+    @Override
     public int getLayoutRes() {
         return R.layout.fragment_splash;
     }

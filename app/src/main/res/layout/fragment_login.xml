@@ -3,9 +3,16 @@
 
     <data>
 
+        <variable
+            name="mViewModel"
+            type="id.estock.app.presentation.login.LoginViewModel"/>
+
+        <variable
+            name="mListener"
+            type="id.estock.app.presentation.login.LoginUserActionListener"/>
+
     </data>
 
-    <!--TODO Layout login masukin sini @yongki-->
 
     <RelativeLayout
 
@@ -67,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#fff"
                 android:hint="Email"
+                android:text="@={mViewModel.bUsername}"
                 android:textColor="#fff"
                 android:textColorHint="#9e9e9e"
                 android:singleLine="true"/>
@@ -76,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#fff"
                 android:hint="Password"
+                android:text="@={mViewModel.bPassword}"
                 android:textColor="#fff"
                 android:inputType="textPassword"
                 android:textColorHint="#a1a1a1"
@@ -112,7 +121,7 @@
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="24dp"
-                android:onClick="bukaSplash"
+                android:onClick="@{()->mListener.onClickLogin()}"
                 android:textStyle="bold"
                 android:background="#1FA1FF"/>
 

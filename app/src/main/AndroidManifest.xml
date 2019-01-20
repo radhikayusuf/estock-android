@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="id.estock.app">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".StockApp"
         android:allowBackup="true"
