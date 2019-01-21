@@ -4,18 +4,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import id.estock.app.presentation.home.carousel.HomeItemCarousel;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
-    private List<HomeModel.HomeCorouselItemModel> mData;
+    private List<HomeModel.HomeCorouselItemModel> mData = new ArrayList<>();
 
 
     public HomePagerAdapter(FragmentManager fm, List<HomeModel.HomeCorouselItemModel> data) {
         super(fm);
-        mData = data;
+        mData.clear();
+        mData.addAll(data);
     }
 
     @Override
@@ -29,7 +31,8 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     }
 
     public void replaceData(List<HomeModel.HomeCorouselItemModel> data) {
-        mData = data;
+        mData.clear();
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 }

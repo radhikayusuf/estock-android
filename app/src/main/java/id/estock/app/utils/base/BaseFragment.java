@@ -30,7 +30,7 @@ public abstract class BaseFragment<B extends ViewDataBinding, T extends BaseView
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mViewBinding = DataBindingUtil.inflate(LayoutInflater.from(requireContext()), getLayoutRes(), null, false);
-        mViewModel = (T) ViewModelProviders.of(this).get(getViewModelClass());
+        mViewModel = ViewModelProviders.of(this).get(getViewModelClass());
         mViewBinding.setVariable(BR.mViewModel, mViewModel);
         return mViewBinding.getRoot();
     }

@@ -9,9 +9,11 @@
     <dimen name="dimens_48dp">48dp</dimen>
     <dimen name="dimens_56dp">56dp</dimen>
     <dimen name="dimens_64dp">64dp</dimen>
+    <dimen name="dimens_80dp">80dp</dimen>
     <dimen name="dimens_200dp">200dp</dimen>
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="text_18sp">18sp</dimen>
     <dimen name="text_20sp">20sp</dimen>
     <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_32sp">32sp</dimen>
 </resources>

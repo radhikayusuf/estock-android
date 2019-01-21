@@ -6,13 +6,36 @@
 
         <variable
             name="mViewModel"
-            type="id.estock.app.presentation.home.HomeViewModel"/>
+            type="id.estock.app.presentation.home.HomeViewModel" />
     </data>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerHome"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:homeList="@{mViewModel.mHomeModel}"/>
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pagerHome"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_200dp"
+                app:homePagerAdapter="@{mViewModel.mDataCarousel}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                android:focusableInTouchMode="true"
+                android:descendantFocusability="blocksDescendants"
+                app:homeList="@{mViewModel.mHomeModel}" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 
 </layout>

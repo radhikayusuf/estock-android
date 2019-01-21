@@ -1,6 +1,7 @@
 package id.estock.app.presentation.home;
 
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 
 import id.estock.app.R;
 import id.estock.app.databinding.FragmentHomeBinding;
@@ -10,18 +11,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
 
     @Override
     public void onCreateBinding(FragmentHomeBinding binding) {
-        binding.recyclerHome.setAdapter(new HomeAdapter(mViewModel.mHomeModel.get(), getChildFragmentManager()));
-        GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
-        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int i) {
-                return i == 0 ? 2 : 1;
-            }
-        });
-        binding.recyclerHome.setLayoutManager(layoutManager);
-        if (binding.recyclerHome.getAdapter() != null) {
-            binding.recyclerHome.getAdapter().notifyDataSetChanged();
+
+        binding.pagerHome.setAdapter(new HomePagerAdapter(getChildFragmentManager(), mViewModel.mHomeModel.get().getCaraouselModels()));
+        binding.pagerHome.setOffscreenPageLimit(mViewModel.mHomeModel.get().getCaraouselModels().size());
+        if (binding.pagerHome.getAdapter() != null) {
+            binding.pagerHome.getAdapter().notifyDataSetChanged();
         }
+
+        final HomeAdapter adapter =  new HomeAdapter(mViewModel.mHomeModel.get());
+        LinearLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
+        binding.recyclerHome.setLayoutManager(layoutManager);
+        binding.recyclerHome.setAdapter(adapter);
     }
 
     @Override
@@ -33,4 +33,5 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     public Class<HomeViewModel> getViewModelClass() {
         return HomeViewModel.class;
     }
+    
 }

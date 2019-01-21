@@ -1,14 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.profile.ProfileFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="mViewModel"
+            type="id.estock.app.presentation.profile.ProfileViewModel"/>
+
+        <variable
+            name="mListener"
+            type="id.estock.app.presentation.profile.ProfileUserActionListener"/>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="@dimen/dimens_16dp"
+        android:orientation="vertical"
+        tools:context=".presentation.profile.ProfileFragment">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_32sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextPrimary"
+            android:text="@string/text_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_16dp"
+            android:visibility="@{mViewModel.mData == null ? View.GONE : View.VISIBLE}"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_launcher"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/dimens_8dp"
+                android:paddingEnd="@dimen/dimens_8dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Margahayu Raya Store"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="@dimen/text_20sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimens_16dp"
+                        android:layout_height="@dimen/dimens_16dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mini_marker"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dimens_8dp"
+                        android:paddingEnd="@dimen/dimens_8dp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="Bandung, Indonesia"
+                        android:textSize="@dimen/text_18sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimens_16dp"
+                        android:layout_height="@dimen/dimens_16dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mini_mail"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dimens_8dp"
+                        android:paddingEnd="@dimen/dimens_8dp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="awesomeguy@mail.com"
+                        android:textSize="@dimen/text_18sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_marginTop="@dimen/dimens_16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_privacy_policy"
+                    android:paddingTop="@dimen/dimens_16dp"
+                    android:paddingBottom="@dimen/dimens_16dp"
+                    android:textSize="@dimen/text_24sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_chevron_right_black_24dp"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/colorTextPrimary"/>
+
+        </FrameLayout>
+
+        <Button
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="64dp"
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:visibility="@{mViewModel.mData == null ? View.GONE : View.VISIBLE}"
+            android:textStyle="bold"
+            android:background="#1FA1FF"/>
+
+        <Button
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="64dp"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24dp"
+            android:visibility="@{mViewModel.mData != null ? View.GONE : View.VISIBLE}"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->mListener.onClickRegister()}"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@drawable/border_primary"/>
+
+        <Button
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="64dp"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:onClick="@{()->mListener.onClickSignIn()}"
+            android:visibility="@{mViewModel.mData != null ? View.GONE : View.VISIBLE}"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="#1FA1FF"/>
+
+    </LinearLayout>
+</layout>

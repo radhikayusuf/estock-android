@@ -1,7 +1,6 @@
 package id.estock.app.utils.base;
 
 import android.databinding.BindingAdapter;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -27,8 +26,8 @@ public class EStockBindings {
     public static void setHomeCarouselData(ViewPager viewPager, List<HomeModel.HomeCorouselItemModel> data){
         if (viewPager.getAdapter() != null) {
             HomePagerAdapter homePagerAdapter = (HomePagerAdapter) viewPager.getAdapter();
-            homePagerAdapter.replaceData(data);
             viewPager.setOffscreenPageLimit(data.size());
+            homePagerAdapter.replaceData(data);
         }
     }
 

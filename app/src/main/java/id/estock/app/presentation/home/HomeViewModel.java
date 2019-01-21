@@ -27,6 +27,7 @@ public class HomeViewModel extends BaseViewModel {
         mDataContentItem.add(new HomeModel.HomeContentItemModel(0, "New Balance 574", "https://nb.scene7.com/is/image/NB/wl574ew_nb_02_i?$pdpPictExp$", 1200000.0));
         mDataContentItem.add(new HomeModel.HomeContentItemModel(0, "New Balance 574", "https://nb.scene7.com/is/image/NB/wl574ew_nb_02_i?$pdpPictExp$", 1200000.0));
         mDataContentItem.add(new HomeModel.HomeContentItemModel(0, "New Balance 574", "https://nb.scene7.com/is/image/NB/wl574ew_nb_02_i?$pdpPictExp$", 1200000.0));
+        mDataContentItem.add(new HomeModel.HomeContentItemModel(0, "New Balance 574", "https://nb.scene7.com/is/image/NB/wl574ew_nb_02_i?$pdpPictExp$", 1200000.0));
 
     }
 }

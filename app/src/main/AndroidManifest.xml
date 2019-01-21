@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="id.estock.app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".StockApp"
         android:allowBackup="true"
@@ -15,14 +16,17 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".presentation.login.LoginActivity" />
         <activity android:name=".presentation.main.MainActivity" />
-        <activity android:name=".presentation.splash.SplashActivity"/>
-        <activity android:name=".presentation.register.RegisterActivity" >
+        <activity android:name=".presentation.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.register.RegisterActivity" />
+        <activity
+            android:name=".presentation.search.SearchActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

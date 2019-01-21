@@ -12,35 +12,59 @@
 
     </data>
 
-    <LinearLayout
-        android:id="@+id/main"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <FrameLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_height="wrap_content">
 
-            <fragment
-                android:id="@+id/fragmentHome"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarMain"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="id.estock.app.presentation.home.HomeFragment"/>
+                android:layout_height="wrap_content"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/colorWhite"/>
+        </android.support.design.widget.AppBarLayout>
 
-        </FrameLayout>
-
-
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottomMain"
+        <LinearLayout
+            android:id="@+id/main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/main_menu"
-            app:elevation="@dimen/dimens_8dp"
-            app:labelVisibilityMode="labeled" />
+            android:layout_height="match_parent"
+            tools:context=".ui.main.MainFragment"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <fragment
+                    android:id="@+id/fragmentHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:name="id.estock.app.presentation.home.HomeFragment"/>
+
+                <fragment
+                    android:id="@+id/fragmentProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:name="id.estock.app.presentation.profile.ProfileFragment"/>
+
+            </FrameLayout>
 
 
-    </LinearLayout>
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottomMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/main_menu"
+                app:elevation="@dimen/dimens_8dp"
+                app:labelVisibilityMode="labeled" />
+
+
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

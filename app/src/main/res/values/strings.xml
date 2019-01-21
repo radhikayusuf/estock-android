@@ -6,5 +6,9 @@
     <string name="text_maps">Maps</string>
     <string name="text_store">Store</string>
     <string name="text_profile">Profile</string>
+    <string name="text_privacy_policy">Privacy Policy</string>
+    <string name="text_search">Search</string>
+    <string name="text_search_product">Search Product</string>
+
 
 </resources>
