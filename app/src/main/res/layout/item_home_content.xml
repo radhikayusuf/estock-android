@@ -17,16 +17,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimens_200dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="120dp"
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{mData.imageUrl}"
-                android:layout_weight="1"/>
+                app:imageUrl="@{mData.imageUrl}" />
 
             <LinearLayout
                 android:layout_width="match_parent"
