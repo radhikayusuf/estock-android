@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 import id.estock.app.R;
 import id.estock.app.data.StockDataSource;
+import id.estock.app.presentation.profile.ProfileModel;
 import id.estock.app.utils.base.BaseViewModel;
 
 public class LoginViewModel extends BaseViewModel {
@@ -24,8 +25,9 @@ public class LoginViewModel extends BaseViewModel {
         if (validateValue()) {
             bMovePage.postValue(true);
             mRepository.postLogin(bUsername.get(), bPassword.get(), new StockDataSource.PostLoginCallback() {
+
                 @Override
-                public void onSuccess(Object data) {
+                public void onSuccess(ProfileModel data) {
                     bMovePage.postValue(true);
                 }
 
