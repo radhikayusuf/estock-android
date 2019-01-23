@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import id.estock.app.data.source.local.StockLocalDataSource;
 import id.estock.app.data.source.remote.StockRemoteDataSource;
+import id.estock.app.presentation.profile.ProfileModel;
 
 /**
  * @Author Radhika Yusuf
@@ -25,11 +26,17 @@ public class StockRepository implements StockDataSource {
     }
 
     @Override
+    public void getProducts(@NonNull GetProductCallback callback) {
+        mRemoteDataSource.getProducts(callback);
+    }
+
+    @Override
     public void postLogin(@NonNull String email, @NonNull String password, @NonNull PostLoginCallback callback) {
         mRemoteDataSource.postLogin(email, password, new PostLoginCallback() {
             @Override
-            public void onSuccess(Object data) {
+            public void onSuccess(ProfileModel data) {
                 callback.onSuccess(data);
+                saveUserData(data);
             }
 
             @Override
@@ -37,6 +44,16 @@ public class StockRepository implements StockDataSource {
                 callback.onError(message);
             }
         });
+    }
+
+    @Override
+    public void saveUserData(ProfileModel data) {
+        mLocalDataSource.saveUserData(data);
+    }
+
+    @Override
+    public ProfileModel getUserData() {
+        return mLocalDataSource.getUserData();
     }
 
 

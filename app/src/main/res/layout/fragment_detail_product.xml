@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="id.estock.app.presentation.detailproduct.DetailProductViewModel"/>
+
+
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.detailproduct.DetailProductFragment">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_200dp"
+                app:titleEnabled="false"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    android:foreground="@color/colorBlackFilter"
+                    app:imageUrl="@{mViewModel.bData.imageUrl}"
+                    android:src="@mipmap/ic_launcher" />
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbarDetailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_arrow_back_white_24dp" />
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimens_16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_24sp"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorTextPrimary"
+                            android:textStyle="bold"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:text="@{mViewModel.bData.productName}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_condition"
+                            android:textSize="@dimen/text_18sp"
+                            android:layout_gravity="center_horizontal|bottom"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_24sp"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorRed"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            app:setIDRtext="@{mViewModel.bData.price}"
+                            tools:text="IDR 1.500.000"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New"
+                            android:textSize="@dimen/text_18sp"
+                            android:textColor="@color/colorRed"
+                            android:layout_gravity="center_horizontal"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTextPrimary"
+                    android:alpha="0.2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dimens_16dp"
+                    android:paddingEnd="@dimen/dimens_16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:paddingTop="@dimen/dimens_8dp"
+                    android:paddingBottom="@dimen/dimens_8dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/dimens_64dp"
+                        android:layout_height="@dimen/dimens_64dp"
+                        app:imageUrl="@{mViewModel.bData.storeModel.imageUrl}"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_24sp"
+                            android:paddingStart="@dimen/dimens_16dp"
+                            android:textColor="@color/colorTextPrimary"
+                            android:paddingEnd="@dimen/dimens_16dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="@{mViewModel.bData.storeModel.namaUser}"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTextPrimary"
+                    android:alpha="0.2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimens_16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/text_20sp"
+                        android:textColor="@color/colorTextPrimary"
+                        android:textStyle="bold"
+                        android:text="@string/text_details"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_16sp"
+                        android:layout_marginTop="@dimen/dimens_16dp"
+                        android:textColor="@color/colorTextPrimary"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. officia deserunt mollit anim id est laborum."/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/text_20sp"
+                    android:textColor="@color/colorTextPrimary"
+                    android:paddingStart="@dimen/dimens_16dp"
+                    android:paddingEnd="@dimen/dimens_16dp"
+                    android:paddingBottom="@dimen/dimens_8dp"
+                    android:paddingTop="@dimen/dimens_8dp"
+                    android:textStyle="bold"
+                    tools:text="Size"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerExtra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

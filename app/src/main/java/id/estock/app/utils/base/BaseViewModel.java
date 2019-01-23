@@ -37,4 +37,7 @@ public class BaseViewModel extends AndroidViewModel {
     }
 
 
+    public void start() {
+
+    }
 }

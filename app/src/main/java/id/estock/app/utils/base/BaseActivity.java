@@ -12,13 +12,16 @@ import id.estock.app.R;
 
 public abstract class BaseActivity<F extends BaseFragment> extends AppCompatActivity {
 
+    public F mFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutRes());
+        mFragment = onCreateFragment();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, onCreateFragment())
+                    .replace(R.id.container, mFragment)
                     .commitNow();
         }
         onViewReady();

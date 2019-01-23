@@ -12,7 +12,6 @@ public class StringHelper {
 
 
     public static String convertToIDR(double money){
-        double harga = 250000000;
 
         DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
         DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
@@ -22,7 +21,7 @@ public class StringHelper {
         formatRp.setGroupingSeparator('.');
 
         kursIndonesia.setDecimalFormatSymbols(formatRp);
-        return kursIndonesia.format(harga);
+        return kursIndonesia.format(money);
     }
 
 }

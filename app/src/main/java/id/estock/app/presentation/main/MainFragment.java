@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import id.estock.app.R;
 import id.estock.app.databinding.MainFragmentBinding;
+import id.estock.app.presentation.scanner.ScannerQrActivity;
 import id.estock.app.presentation.search.SearchActivity;
 import id.estock.app.utils.base.BaseFragment;
 
@@ -79,6 +80,9 @@ public class MainFragment extends BaseFragment<MainFragmentBinding, MainViewMode
         switch (menuItem.getItemId()) {
             case R.id.main_search:
                 SearchActivity.startThisActivity(requireContext());
+                break;
+            case R.id.scanQR:
+                ScannerQrActivity.startThisActivity(requireContext());
                 break;
         }
         return false;

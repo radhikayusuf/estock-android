@@ -5,9 +5,10 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import id.estock.app.R;
 import id.estock.app.databinding.FragmentHomeBinding;
+import id.estock.app.presentation.detailproduct.DetailProductActivity;
 import id.estock.app.utils.base.BaseFragment;
 
-public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
+public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewModel> implements HomeUserActionListener {
 
     @Override
     public void onCreateBinding(FragmentHomeBinding binding) {
@@ -18,7 +19,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
             binding.pagerHome.getAdapter().notifyDataSetChanged();
         }
 
-        final HomeAdapter adapter =  new HomeAdapter(mViewModel.mHomeModel.get());
+        final HomeAdapter adapter =  new HomeAdapter(mViewModel.mHomeModel.get(), this);
         LinearLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
         binding.recyclerHome.setLayoutManager(layoutManager);
         binding.recyclerHome.setAdapter(adapter);
@@ -33,5 +34,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
     public Class<HomeViewModel> getViewModelClass() {
         return HomeViewModel.class;
     }
-    
+
+    @Override
+    public void onClickItemContent(HomeModel.HomeContentItemModel data) {
+        DetailProductActivity.startThisActivity(requireContext(), String.valueOf(data.getId()));
+    }
 }

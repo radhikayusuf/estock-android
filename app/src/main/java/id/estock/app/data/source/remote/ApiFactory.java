@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class ApiFactory {
 
-    private static final String HOST = "https://estock.com/api/";
+    private static final String HOST = "http://127.0.0.1:3333/api/v1/";
 
     protected static ApiService getApiService() {
         HttpLoggingInterceptor mLoggingInterceptor = new HttpLoggingInterceptor();

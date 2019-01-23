@@ -10,5 +10,12 @@
     <string name="text_search">Search</string>
     <string name="text_search_product">Search Product</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_condition">Condition</string>
+    <string name="text_details">Details</string>
+    <string name="text_desc_qr">Line up QR Code to scan it with your device\'s camera. to Find a Product.</string>
+    <string name="text_scan_qr">Scan QR</string>
+
 
 </resources>

@@ -23,17 +23,17 @@ public class LoginViewModel extends BaseViewModel {
     public void doLogin(){
         if (validateValue()) {
             bMovePage.postValue(true);
-//            mRepository.postLogin(bUsername.get(), bPassword.get(), new StockDataSource.PostLoginCallback() {
-//                @Override
-//                public void onSuccess(Object data) {
-//                    bMovePage.postValue(true);
-//                }
-//
-//                @Override
-//                public void onError(String message) {
-//
-//                }
-//            });
+            mRepository.postLogin(bUsername.get(), bPassword.get(), new StockDataSource.PostLoginCallback() {
+                @Override
+                public void onSuccess(Object data) {
+                    bMovePage.postValue(true);
+                }
+
+                @Override
+                public void onError(String message) {
+
+                }
+            });
         }
     }
 

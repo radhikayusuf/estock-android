@@ -51,6 +51,7 @@ public abstract class BaseFragment<B extends ViewDataBinding, T extends BaseView
         });
 
         onCreateBinding(mViewBinding);
+        mViewModel.start();
     }
 
     public abstract void onCreateBinding(B binding);

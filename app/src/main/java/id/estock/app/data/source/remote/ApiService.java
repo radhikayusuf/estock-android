@@ -1,8 +1,12 @@
 package id.estock.app.data.source.remote;
 
-import android.databinding.ObservableField;
+import java.util.List;
 
+import id.estock.app.presentation.home.HomeModel;
+import id.estock.app.presentation.profile.ProfileModel;
+import id.estock.app.utils.base.BaseResponse;
 import io.reactivex.Observable;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -13,6 +17,10 @@ import retrofit2.http.POST;
 public interface ApiService {
 
     @POST("user/login")
-    Observable<Object> postLogin(String email, String password);
+    Observable<ProfileModel> postLogin(String email, String password);
+
+
+    @GET("v1/product")
+    Observable<BaseResponse<List<HomeModel.HomeContentItemModel>>> getHomeProduct();
 
 }

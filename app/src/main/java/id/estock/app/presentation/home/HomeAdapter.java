@@ -11,9 +11,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     private HomeModel mData;
+    private HomeUserActionListener mListener;
 
-    public HomeAdapter(HomeModel model) {
+    public HomeAdapter(HomeModel model, HomeUserActionListener listener) {
         mData = model;
+        mListener = listener;
     }
 
 
@@ -27,7 +29,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         HomeItemViewHolder homeItemViewHolder = (HomeItemViewHolder) viewHolder;
-        homeItemViewHolder.bind(mData.getContentModels().get(position ));
+        homeItemViewHolder.bind(mData.getContentModels().get(position), mListener);
     }
 
 
@@ -51,8 +53,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             mBinding = binding;
         }
 
-        public void bind(HomeModel.HomeContentItemModel homeContentItemModel) {
+        public void bind(HomeModel.HomeContentItemModel homeContentItemModel, HomeUserActionListener mListener) {
             mBinding.setMData(homeContentItemModel);
+            mBinding.setMListener(mListener);
         }
     }
 
